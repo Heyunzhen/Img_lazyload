@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .img {
+            display: block;
+            margin-bottom: 50px;
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            filter: blur(20px);
+        }
+
+        .imgs {
+            display: block;
+            margin-bottom: 50px;
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            transition: 1s;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="box">        
+                <img class="img" src="./img//timg.gif" data-src="http://img.netbian.com/file/2019/0525/609e6708f64c6cdfd0b05ec5d670c3e9.jpg" alt="">
+                <img class="img" src="./img//timg.gif" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+                <img class="img" src="./img//timg.gif" data-src="http://ww1.sinaimg.cn/large/006y8mN6gw1fa7kaed2hpj30sg0l9q54.jpg" alt="">
+                <img class="img" src="./img//timg.gif" data-src="http://ww1.sinaimg.cn/large/006y8mN6gw1fa7kaed2hpj30sg0l9q54.jpg" alt="">
+                <img class="img" src="./img//timg.gif" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+                <img class="img" src="./img//timg.gif" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+                <img class="img" src="./img//timg.gif" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+                <img class="img" src="./img//timg.gif" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+                <img class="img" src="./img//timg.gif" data-src="http://ww1.sinaimg.cn/large/006y8mN6gw1fa7kaed2hpj30sg0l9q54.jpg" alt="">
+                <img class="img" src="./img//timg.gif" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+                <img class="img" src="./img//timg.gif" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+        </div>
+    <script>
+        var img=Array.from(document.querySelectorAll('img'))
+        lazyload()
+        function lazyload(){
+            var clientheight=document.documentElement.clientHeight //可视区高度
+            var scrollTop=document.documentElement.scrollTop || document.body.scrollTop //滚动条距离顶部的高度
+            for(var i=0;i<img.length;i++){
+                if(img[i].offsetTop<clientheight+scrollTop){
+                    img[i].src=img[i].getAttribute('data-src')
+                    img[i].classList.remove('img')
+                    img[i].classList.add('imgs')
+
+                }
+            }
+        }
+        window.addEventListener('scroll',lazyload)
+        var arr = [1, 2, 3, 4, 5, 6]
+        arr.sort((a, b) => { return Math.random() * a - Math.random() * b })
+        console.log(arr)
+
+
+        var str = "的"
+
+        var FindString = "我的"
+
+        var array=[]
+
+        function indexOF(str, FindString) {
+            for (var i = 0; i < FindString.length; i++) {
+                for (var j = 0; j < str.length; j++) {
+                    if (FindString[i] == str[j]) {
+                        array.push(i)
+                        console.log(array[0])
+                    }else if(i==FindString.length-1){
+                        console.log('-1')
+                    }
+                }
+            }
+        }
+        indexOF(str,FindString)
+
+    </script>
+</body>
+
+</html>
